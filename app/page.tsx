@@ -6,6 +6,7 @@ import { Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ProductCard } from "@/components/product-card"
 import { useAppSelector } from "@/lib/hooks"
+import CustomerReview from "@/components/customer-review"
 
 export default function HomePage() {
   const { items: products } = useAppSelector((state) => state.products)
@@ -13,10 +14,10 @@ export default function HomePage() {
   const topSelling = products.slice(4, 8)
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       {/* Hero Section */}
       <div className="bg-[#f2f0f1]">
-        <div className="flex mx-auto px-10 pt-6 md:pt-8 w-screen">
+        <div className="flex mx-auto px-4 md:px-10 pt-6 md:pt-8 w-full">
           <div className="md:px-10 lg:pt-6 pb-0 flex flex-col md:flex-row gap-10">
             <div className="lg:w-3/6 w-full">
               <h1 className="font-integral text-3xl md:text-4xl lg:text-7xl font-[1000] leading-tight md:py-5">
@@ -49,75 +50,36 @@ export default function HomePage() {
               </div>
             </div>
             <div className="w-full lg:w-3/6 md:overflow-hidden">
-              <div className="">
-                <Image
-                  src="Images/hero.png"
-                  alt="Hero Image"
-                  width={550}
-                  height={480}
-                  className="w-full object-cover"
-                />
-              </div>
+              <Image
+                src="/Images/hero.png"
+                alt="Hero Image"
+                width={550}
+                height={480}
+                className="w-full object-cover"
+              />
             </div>
           </div>
-
         </div>
-        <div className="flex mx-auto px-10 bg-black py-6 md:py-8 w-screen">
+
+        <div className="flex mx-auto px-4 md:px-10 bg-black py-6 md:py-8 w-full overflow-x-hidden">
           <div className="grid grid-cols-5 gap-2 md:grid-flow-col justify-center items-center space-x-4 md:space-x-12 overflow-x-auto">
-            {/* Versace Logo */}
-            <div className="flex-shrink-0">
-              <Image
-                src="/Images/logo/versace.png"
-                alt="Versace"
-                width={120}
-                height={40}
-                className="h-6 md:h-10 w-auto object-contain filter brightness-0 invert"
-              />
-            </div>
-
-            {/* Zara Logo */}
-            <div className="flex-shrink-0">
-              <Image
-                src="/Images/logo/zara.png"
-                alt="Zara"
-                width={80}
-                height={40}
-                className="h-6 md:h-10 w-auto object-contain filter brightness-0 invert"
-              />
-            </div>
-
-            {/* Gucci Logo */}
-            <div className="flex-shrink-0">
-              <Image
-                src="/Images/logo/gucci.png"
-                alt="Gucci"
-                width={100}
-                height={40}
-                className="h-6 md:h-10 w-auto object-contain filter brightness-0 invert"
-              />
-            </div>
-
-            {/* Prada Logo */}
-            <div className="flex-shrink-0">
-              <Image
-                src="/Images/logo/prada.png"
-                alt="Prada"
-                width={100}
-                height={40}
-                className="h-6 md:h-10 w-auto object-contain filter brightness-0 invert"
-              />
-            </div>
-
-            {/* Calvin Klein Logo */}
-            <div className="flex-shrink-0">
-              <Image
-                src="/Images/logo/klein.png"
-                alt="Calvin Klein"
-                width={120}
-                height={40}
-                className="h-6 md:h-10 w-auto object-contain filter brightness-0 invert"
-              />
-            </div>
+            {[
+              { src: "/Images/logo/versace.png", alt: "Versace", width: 120 },
+              { src: "/Images/logo/zara.png", alt: "Zara", width: 80 },
+              { src: "/Images/logo/gucci.png", alt: "Gucci", width: 100 },
+              { src: "/Images/logo/prada.png", alt: "Prada", width: 100 },
+              { src: "/Images/logo/klein.png", alt: "Calvin Klein", width: 120 },
+            ].map((brand, index) => (
+              <div key={index} className="flex-shrink-0">
+                <Image
+                  src={brand.src}
+                  alt={brand.alt}
+                  width={brand.width}
+                  height={40}
+                  className="h-6 md:h-10 w-auto object-contain filter brightness-0 invert"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -170,70 +132,28 @@ export default function HomePage() {
           <div className="bg-[#F0F0F0] rounded-2xl p-4 md:p-8 shadow">
             <h1 className="text-2xl md:text-4xl font-bold text-center mb-6 md:mb-10">BROWSE BY DRESS STYLE</h1>
 
-            {/* Mobile Layout - Stacked */}
-            <div className="md:hidden grid grid-cols-1 gap-5 ">
-              <Link href="/shop?category=casual">
-                <div className="rounded-xl overflow-hidden bg-white shadow group">
-                  <div className="h-48 w-full overflow-hidden">
-                    <Image
-                      src="/Images/casual.png"
-                      alt="Casual"
-                      width={400}
-                      height={300}
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform"
-                    />
+            {/* Mobile Layout */}
+            <div className="md:hidden grid grid-cols-1 gap-5">
+              {["casual", "formal", "party", "gym"].map((cat) => (
+                <Link key={cat} href={`/shop?category=${cat}`}>
+                  <div className="rounded-xl overflow-hidden bg-white shadow group">
+                    <div className="h-48 w-full overflow-hidden">
+                      <Image
+                        src={`/Images/${cat}.png`}
+                        alt={cat}
+                        width={400}
+                        height={300}
+                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform"
+                      />
+                    </div>
                   </div>
-                </div>
-              </Link>
-
-              <Link href="/shop?category=formal">
-                <div className="rounded-xl overflow-hidden bg-white shadow group">
-                  <div className="h-48 w-full overflow-hidden">
-                    <Image
-                      src="/Images/formal.png"
-                      alt="Formal"
-                      width={400}
-                      height={300}
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform"
-                    />
-                  </div>
-                </div>
-              </Link>
-
-              <Link href="/shop?category=party">
-                <div className="rounded-xl overflow-hidden bg-white shadow group">
-                  <div className="h-48 w-full overflow-hidden">
-                    <Image
-                      src="/Images/party.png"
-                      alt="Party"
-                      width={400}
-                      height={300}
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform"
-                    />
-                  </div>
-                </div>
-              </Link>
-
-              <Link href="/shop?category=gym">
-                <div className="rounded-xl overflow-hidden bg-white shadow group">
-                  <div className="h-48 w-full overflow-hidden">
-                    <Image
-                      src="/Images/gym.png"
-                      alt="Gym"
-                      width={400}
-                      height={300}
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform"
-                    />
-                  </div>
-                </div>
-              </Link>
+                </Link>
+              ))}
             </div>
 
-            {/* Desktop Layout - Grid */}
+            {/* Desktop Layout */}
             <div className="hidden md:block">
-              {/* Top Row */}
               <div className="flex gap-6 mb-6">
-                {/* Casual (1/3) */}
                 <Link href="/shop?category=casual" className="w-1/3">
                   <div className="rounded-xl overflow-hidden bg-white shadow group">
                     <div className="h-[380px] w-full overflow-hidden">
@@ -247,8 +167,6 @@ export default function HomePage() {
                     </div>
                   </div>
                 </Link>
-
-                {/* Formal (2/3) */}
                 <Link href="/shop?category=formal" className="w-2/3">
                   <div className="rounded-xl overflow-hidden bg-white shadow group">
                     <div className="h-[380px] w-full overflow-hidden">
@@ -264,9 +182,7 @@ export default function HomePage() {
                 </Link>
               </div>
 
-              {/* Bottom Row */}
               <div className="flex gap-6">
-                {/* Party (2/3) */}
                 <Link href="/shop?category=party" className="w-2/3">
                   <div className="rounded-xl overflow-hidden bg-white shadow group">
                     <div className="h-[380px] w-full overflow-hidden">
@@ -280,8 +196,6 @@ export default function HomePage() {
                     </div>
                   </div>
                 </Link>
-
-                {/* Gym (1/3) */}
                 <Link href="/shop?category=gym" className="w-1/3">
                   <div className="rounded-xl overflow-hidden bg-white shadow group">
                     <div className="h-[380px] w-full overflow-hidden">
@@ -302,32 +216,9 @@ export default function HomePage() {
       </section>
 
       {/* Customer Reviews */}
-      <section className="py-12 md:py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold">OUR HAPPY CUSTOMERS</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="bg-white p-4 md:p-6 rounded-lg shadow-sm">
-                <div className="flex items-center mb-4">
-                  {[...Array(5)].map((_, j) => (
-                    <Star key={j} className="h-4 w-4 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-gray-600 mb-4 text-sm md:text-base">
-                  "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to
-                  elegant dresses, every piece I've bought has exceeded my expectations."
-                </p>
-                <div className="font-semibold text-sm md:text-base">Sarah M.</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <CustomerReview />
 
-
-
+      
     </div>
   )
 }
