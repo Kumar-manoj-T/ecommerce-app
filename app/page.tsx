@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { ProductCard } from "@/components/product-card"
 import { useAppSelector } from "@/lib/hooks"
 import CustomerReview from "@/components/customer-review"
+import '../styles/globals.css'
 
 export default function HomePage() {
   const { items: products } = useAppSelector((state) => state.products)
@@ -27,14 +28,14 @@ export default function HomePage() {
                 <br />
                 YOUR STYLE
               </h1>
-              <p className="text-gray-600 text-base md:text-lg pb-5">
+              <p className="text-gray-600 text-base md:text-lg pb-7">
                 Browse through our diverse range of meticulously crafted garments, designed to bring out your
                 individuality and cater to your sense of style.
               </p>
-              <Button size="lg" className="px-6 md:px-20 rounded-full w-fit">
+              <Button size="lg" className="px-6 md:px-20 rounded-full w-full md:w-auto">
                 Shop Now
               </Button>
-              <div className="grid grid-cols-3 gap-4 md:flex md:items-center md:space-x-8">
+              <div className="grid grid-cols-3 gap-4 md:flex md:items-center md:space-x-8 pt-6 md:pt-10">
                 <div className="text-center md:text-left">
                   <div className="text-lg md:text-3xl font-bold">200+</div>
                   <div className="text-gray-600 text-xs md:text-base">International Brands</div>
@@ -90,11 +91,16 @@ export default function HomePage() {
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">NEW ARRIVALS</h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+
+          {/* Scrollable on mobile, grid on desktop */}
+          <div className="flex space-x-4 overflow-x-auto md:grid md:grid-cols-4 md:gap-8 no-scrollbar">
             {newArrivals.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <div key={product.id} className="min-w-[65%] md:min-w-0">
+                <ProductCard product={product} />
+              </div>
             ))}
           </div>
+
           <div className="text-center mt-6 md:mt-8">
             <Link href="/shop">
               <Button variant="outline" className="w-full md:w-auto">
@@ -105,17 +111,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Top Selling */}
+      {/* Top Selling Products */}
       <section className="py-12 md:py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">TOP SELLING</h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+
+          {/* Horizontal scroll on mobile, grid on desktop */}
+          <div className="flex space-x-4 overflow-x-auto md:grid md:grid-cols-4 md:gap-8 no-scrollbar">
             {topSelling.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <div key={product.id} className="min-w-[65%] md:min-w-0">
+                <ProductCard product={product} />
+              </div>
             ))}
           </div>
+
           <div className="text-center mt-6 md:mt-8">
             <Link href="/shop">
               <Button variant="outline" className="w-full md:w-auto">
@@ -125,6 +136,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
 
       {/* Browse by Dress Style */}
       <section className="py-12 md:py-16">
@@ -218,7 +230,7 @@ export default function HomePage() {
       {/* Customer Reviews */}
       <CustomerReview />
 
-      
+
     </div>
   )
 }
