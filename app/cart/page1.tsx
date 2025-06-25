@@ -8,11 +8,10 @@ import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import { useAppSelector, useAppDispatch } from "@/lib/hooks"
 import { updateQuantity, removeFromCart } from "@/lib/slices/cartSlice"
-import { useEffect, useState } from "react"
 
 export default function CartPage() {
   const dispatch = useAppDispatch()
-  const { items, total } = useAppSelector((state) => state.cart)
+  const { items, total, itemCount } = useAppSelector((state) => state.cart)
 
   const subtotal = total
   const discount = subtotal * 0.2 // 20% discount
@@ -32,25 +31,25 @@ export default function CartPage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-6 sm:py-8">
-      {/* Breadcrumb */}
-      <div className="mb-6">
+    <div className="container mx-auto px-4 py-8">
+      <div className="mb-8">
         <nav className="flex items-center space-x-2 text-sm text-gray-500">
-          <Link href="/" className="hover:text-gray-700">Home</Link>
+          <Link href="/" className="hover:text-gray-700">
+            Home
+          </Link>
           <span>/</span>
           <span>Cart</span>
         </nav>
       </div>
 
-      <h1 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">YOUR CART</h1>
+      <h1 className="text-3xl font-bold mb-8">YOUR CART</h1>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
         {/* Cart Items */}
         <div className="lg:col-span-2 space-y-4">
           {items.map((item) => (
-            <div key={item.id} className="flex flex-col sm:flex-row sm:items-center gap-4 p-4 border rounded-lg bg-white shadow-sm">
-              {/* Product Image */}
-              <div className="w-full sm:w-24 h-24 mx-auto sm:mx-0 rounded-lg overflow-hidden bg-gray-100">
+            <div key={item.id} className="flex flex-col sm:flex-row sm:items-center gap-4 p-4 border rounded-lg">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gray-100 rounded-lg overflow-hidden mx-auto sm:mx-0">
                 <Image
                   src={item.product.image || "/placeholder.svg"}
                   alt={item.product.name}
@@ -60,53 +59,45 @@ export default function CartPage() {
                 />
               </div>
 
-              {/* Product Info */}
               <div className="flex-1 text-center sm:text-left">
-                <h3 className="font-semibold text-base">{item.product.name}</h3>
+                <h3 className="font-semibold">{item.product.name}</h3>
                 <p className="text-sm text-gray-600">Size: {item.selectedSize}</p>
                 <p className="text-sm text-gray-600">Color: {item.selectedColor}</p>
-                <p className="font-semibold mt-2 text-lg">${item.product.price}</p>
+                <p className="font-semibold mt-2">${item.product.price}</p>
               </div>
 
-              {/* Quantity & Remove Controls */}
-              <div className="flex sm:flex-col items-center justify-between sm:items-start sm:space-y-2 gap-2">
-                <div className="flex items-center space-x-2">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() =>
-                      dispatch(updateQuantity({ id: item.id, quantity: item.quantity - 1 }))
-                    }
-                  >
-                    <Minus className="h-4 w-4" />
-                  </Button>
-                  <span className="w-6 text-center">{item.quantity}</span>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() =>
-                      dispatch(updateQuantity({ id: item.id, quantity: item.quantity + 1 }))
-                    }
-                  >
-                    <Plus className="h-4 w-4" />
-                  </Button>
-                </div>
-
+              <div className="flex items-center justify-center sm:justify-start space-x-2">
                 <Button
-                  variant="ghost"
+                  variant="outline"
                   size="sm"
-                  onClick={() => dispatch(removeFromCart(item.id))}
-                  className="text-red-500 hover:text-red-700"
+                  onClick={() => dispatch(updateQuantity({ id: item.id, quantity: item.quantity - 1 }))}
                 >
-                  <Trash2 className="h-4 w-4" />
+                  <Minus className="h-4 w-4" />
+                </Button>
+                <span className="w-8 text-center">{item.quantity}</span>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => dispatch(updateQuantity({ id: item.id, quantity: item.quantity + 1 }))}
+                >
+                  <Plus className="h-4 w-4" />
                 </Button>
               </div>
+
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => dispatch(removeFromCart(item.id))}
+                className="text-red-500 hover:text-red-700"
+              >
+                <Trash2 className="h-4 w-4" />
+              </Button>
             </div>
           ))}
         </div>
 
         {/* Order Summary */}
-        <div className="bg-gray-50 p-4 md:p-6 rounded-lg h-fit shadow-sm">
+        <div className="bg-gray-50 p-4 md:p-6 rounded-lg h-fit">
           <h2 className="text-lg md:text-xl font-semibold mb-4">Order Summary</h2>
 
           <div className="space-y-3">

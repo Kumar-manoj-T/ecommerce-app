@@ -13,6 +13,7 @@ export interface Product {
   description: string
   isOnSale?: boolean
   discount?: number
+  dressStyle?: string[]
 }
 
 export interface CartItem {

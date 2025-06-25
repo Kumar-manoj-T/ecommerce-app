@@ -24,23 +24,42 @@ const reviews = [
     name: "Monica D.",
     text: "Every time I order from Shop.co, I know I’m getting high-quality fashion that fits beautifully. Highly recommended!",
   },
+  {
+    name: "Monica D.",
+    text: "Every time I order from Shop.co, I know I’m getting high-quality fashion that fits beautifully. Highly recommended!",
+  }, {
+    name: "Monica D.",
+    text: "Every time I order from Shop.co, I know I’m getting high-quality fashion that fits beautifully. Highly recommended!",
+  }, {
+    name: "Monica D.",
+    text: "Every time I order from Shop.co, I know I’m getting high-quality fashion that fits beautifully. Highly recommended!",
+  }, {
+    name: "Monica D.",
+    text: "Every time I order from Shop.co, I know I’m getting high-quality fashion that fits beautifully. Highly recommended!",
+  },
 ]
 
 export default function CustomerReview() {
   return (
     <section className="py-12 md:py-16 bg-gray-50 relative">
-      <div className="container mx-auto px-4 relative">
+      <div className="container mx-auto px-4 relative lg:px-14">
         <div className="flex justify-between items-center mb-8 md:mb-12">
           <h2 className="text-2xl md:text-3xl font-bold">OUR HAPPY CUSTOMERS</h2>
-          {/* Swiper navigation buttons (placeholders, styled by Swiper) */}
-          {/* <div className="flex gap-4">
-            <div className="swiper-button-prev !static !text-black !left-auto !top-0" />
-            <div className="swiper-button-next !static !text-black !left-auto !top-0" />
-          </div> */}
           <div className="flex gap-4 items-center">
-            <div className="swiper-button-prev !static !text-black !left-auto !top-0 !w-1 !h-1 !text-base" />
-            <div className="swiper-button-next !static !text-black !left-auto !top-0 !w-3 !h-3 !text-base" />
+            <div
+              className="swiper-button-prev !w-4 !h-4 !p-0 !m-0 !bg-none !text-transparent !shadow-none !border-none !static !top-auto !left-auto cursor-pointer"
+            >
+              <img src="/Images/left-arow.png" alt="Previous" className="w-full h-full object-contain" />
+            </div>
+
+           
+            <div
+              className="swiper-button-next !w-4 !h-4 !p-0 !m-0 !bg-none !text-transparent !shadow-none !border-none !static !top-auto !left-auto cursor-pointer"
+            >
+              <img src="/Images/right-arow.png" alt="Next" className="w-full h-full object-contain" />
+            </div>
           </div>
+
         </div>
 
         <Swiper

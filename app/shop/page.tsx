@@ -55,6 +55,12 @@ export default function ShopPage() {
         }
       }
 
+      // Dress style filter
+      if (filters.dressStyle.length > 0) {
+        const hasMatchingStyle = product?.dressStyle?.some((style) => filters.dressStyle.includes(style))
+        if (!hasMatchingStyle) return false
+      }
+
       return true
     })
 
@@ -90,12 +96,28 @@ export default function ShopPage() {
 
         <div className="flex-1">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+            {/* <div>
+              <h1 className="text-xl md:text-2xl font-bold">{}</h1>
+              <p className="text-gray-600 text-sm md:text-base">
+                Showing 1-{filteredProducts.length} of {filteredProducts.length} Products
+              </p>
+            </div> */}
+
             <div>
-              <h1 className="text-xl md:text-2xl font-bold">Casual</h1>
+              <h1 className="text-xl md:text-2xl font-bold">
+                {filters.searchQuery
+                  ? `Results for "${filters.searchQuery}"`
+                  : filters.category
+                    ? `${filters.category} Collection`
+                    : filters.dressStyle.length > 0
+                      ? `${filters.dressStyle.join(", ")} Style`
+                      : "All Products"}
+              </h1>
               <p className="text-gray-600 text-sm md:text-base">
                 Showing 1-{filteredProducts.length} of {filteredProducts.length} Products
               </p>
             </div>
+
 
             <div className="flex items-center gap-2">
               <Button variant="outline" onClick={() => setShowMobileFilters(true)} className="lg:hidden">

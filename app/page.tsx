@@ -87,7 +87,7 @@ export default function HomePage() {
 
       {/* New Arrivals */}
       <section className="py-12 md:py-16">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-14">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">NEW ARRIVALS</h2>
           </div>
@@ -113,7 +113,7 @@ export default function HomePage() {
 
       {/* Top Selling Products */}
       <section className="py-12 md:py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-14">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">TOP SELLING</h2>
           </div>
@@ -140,16 +140,16 @@ export default function HomePage() {
 
       {/* Browse by Dress Style */}
       <section className="py-12 md:py-16">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-14">
           <div className="bg-[#F0F0F0] rounded-2xl p-4 md:p-8 shadow">
             <h1 className="text-2xl md:text-4xl font-bold text-center mb-6 md:mb-10">BROWSE BY DRESS STYLE</h1>
 
             {/* Mobile Layout */}
             <div className="md:hidden grid grid-cols-1 gap-5">
-              {["casual", "formal", "party", "gym"].map((cat) => (
+              {["casual1", "formal1", "party1", "gym1"].map((cat) => (
                 <Link key={cat} href={`/shop?category=${cat}`}>
                   <div className="rounded-xl overflow-hidden bg-white shadow group">
-                    <div className="h-48 w-full overflow-hidden">
+                    <div className="h-48 w-[310px] overflow-hidden">
                       <Image
                         src={`/Images/${cat}.png`}
                         alt={cat}
