@@ -139,10 +139,12 @@ export default function HomePage() {
 
 
       {/* Browse by Dress Style */}
-      <section className="py-12 md:py-16">
+      <section className="py-12 md:py-14">
         <div className="container mx-auto px-4 lg:px-14">
-          <div className="bg-[#F0F0F0] rounded-2xl p-4 md:p-8 shadow">
-            <h1 className="text-2xl md:text-4xl font-bold text-center mb-6 md:mb-10">BROWSE BY DRESS STYLE</h1>
+          <div className="bg-[#F0F0F0] rounded-2xl p-6 md:p-6 shadow">
+            <h1 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8">
+              BROWSE BY DRESS STYLE
+            </h1>
 
             {/* Mobile Layout */}
             <div className="md:hidden grid grid-cols-1 gap-5">
@@ -165,10 +167,10 @@ export default function HomePage() {
 
             {/* Desktop Layout */}
             <div className="hidden md:block">
-              <div className="flex gap-6 mb-6">
+              <div className="flex gap-4 mb-6">
                 <Link href="/shop?category=casual" className="w-1/3">
                   <div className="rounded-xl overflow-hidden bg-white shadow group">
-                    <div className="h-[380px] w-full overflow-hidden">
+                    <div className="h-[300px] w-full overflow-hidden">
                       <Image
                         src="/Images/casual.png"
                         alt="Casual"
@@ -181,7 +183,7 @@ export default function HomePage() {
                 </Link>
                 <Link href="/shop?category=formal" className="w-2/3">
                   <div className="rounded-xl overflow-hidden bg-white shadow group">
-                    <div className="h-[380px] w-full overflow-hidden">
+                    <div className="h-[300px] w-full overflow-hidden">
                       <Image
                         src="/Images/formal.png"
                         alt="Formal"
@@ -194,10 +196,10 @@ export default function HomePage() {
                 </Link>
               </div>
 
-              <div className="flex gap-6">
+              <div className="flex gap-4">
                 <Link href="/shop?category=party" className="w-2/3">
                   <div className="rounded-xl overflow-hidden bg-white shadow group">
-                    <div className="h-[380px] w-full overflow-hidden">
+                    <div className="h-[300px] w-full overflow-hidden">
                       <Image
                         src="/Images/party.png"
                         alt="Party"
@@ -210,7 +212,7 @@ export default function HomePage() {
                 </Link>
                 <Link href="/shop?category=gym" className="w-1/3">
                   <div className="rounded-xl overflow-hidden bg-white shadow group">
-                    <div className="h-[380px] w-full overflow-hidden">
+                    <div className="h-[300px] w-full overflow-hidden">
                       <Image
                         src="/Images/gym.png"
                         alt="Gym"
@@ -226,6 +228,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
 
       {/* Customer Reviews */}
       <CustomerReview />
