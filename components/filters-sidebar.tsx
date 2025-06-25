@@ -17,7 +17,7 @@ import {
 
 const categories = ["T-shirts", "Shorts", "Shirts", "Hoodie", "Jeans"]
 const colors = ["Black", "Red", "Yellow", "Orange", "Blue", "Purple", "Pink", "White", "Green"]
-const sizes = ["XX-Small", "X-Small", "Small", "Medium", "Large", "X-Large", "XX-Large", "3X-Large", "4X-Large"]
+const sizes = ["XX-S", "X-S", "S", "M", "L", "X-L", "XX-L", "3X-L", "4X-L"]
 const dressStyles = ["Casual", "Formal", "Party", "Gym"]
 
 export function FiltersSidebar() {

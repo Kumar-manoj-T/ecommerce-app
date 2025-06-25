@@ -18,7 +18,7 @@ const mockProducts: Product[] = [
     category: "T-shirts",
     rating: 5.0,
     reviewCount: 60,
-    colors: ["Black", "White"],
+    colors: ["Black"],
     sizes: ["S", "M", "L", "XL"],
     description: "Stylish striped t-shirt perfect for casual wear.",
     isOnSale: true,
@@ -36,10 +36,11 @@ const mockProducts: Product[] = [
     rating: 3.5,
     reviewCount: 55,
     colors: ["Blue", "Black"],
-    sizes: ["28", "30", "32", "34", "36"],
+    sizes: ["S", "M", "L", "XX-L", "3X-L"],
     description: "Comfortable skinny fit jeans for everyday wear.",
     isOnSale: true,
     discount: 20,
+    dressStyle:["Casual"]
   },
   {
     id: "3",
@@ -52,6 +53,7 @@ const mockProducts: Product[] = [
     colors: ["Red", "Blue", "Green"],
     sizes: ["S", "M", "L", "XL"],
     description: "Classic checkered shirt for a timeless look.",
+    dressStyle:["Casual"]
   },
   {
     id: "4",
@@ -67,6 +69,7 @@ const mockProducts: Product[] = [
     description: "Trendy sleeve striped t-shirt.",
     isOnSale: true,
     discount: 30,
+    dressStyle:["Casual"]
   },
   {
     id: "5",
@@ -77,10 +80,11 @@ const mockProducts: Product[] = [
     category: "Shirts",
     rating: 4.5,
     reviewCount: 35,
-    colors: ["White", "Black", "Gray"],
+    colors: ["Green", "Black", ],
     sizes: ["XS", "S", "M", "L", "XL"],
     description:
       "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+    dressStyle:["Casual"]
   },
   {
     id: "6",
@@ -90,33 +94,36 @@ const mockProducts: Product[] = [
     category: "T-shirts",
     rating: 4.5,
     reviewCount: 45,
-    colors: ["Red", "Blue", "Green"],
+    colors: ["Orange","Red", "white",],
     sizes: ["S", "M", "L", "XL"],
     description: "Classic polo shirt with tipping details for a sophisticated look.",
+    dressStyle:["Casual"]
   },
   {
     id: "7",
-    name: "Polo Shirt",
+    name: "Half Shorts",
     price: 180,
     image: "/Images/7.png",
     category: "Shorts",
     rating: 4.5,
     reviewCount: 45,
-    colors: ["Red", "Blue", "Green"],
+    colors: [ "Blue", "White",],
     sizes: ["S", "M", "L", "XL"],
     description: "Classic polo shirt with tipping details for a sophisticated look.",
+    dressStyle:["Casual"]
   },
   {
     id: "8",
-    name: "Casual Shirt",
+    name: "Black Fit Jeans",
     price: 200,
     image: "/Images/8.png",
     category: "Jeans",
     rating: 4.5,
     reviewCount: 45,
-    colors: ["Red", "Blue", "Green"],
+    colors: ["Black",],
     sizes: ["S", "M", "L", "XL"],
     description: "Casual shirt with a relaxed fit and breathable fabric.",
+    dressStyle:["Casual"]
   },
   {
     id: "9",
@@ -127,57 +134,62 @@ const mockProducts: Product[] = [
     category: "T-shirts",
     rating: 4.5,
     reviewCount: 45,
-    colors: ["Red", "Blue", "Green"],
+    colors: ["Black", "Green"],
     sizes: ["S", "M", "L", "XL"],
     description: "Stylish graphic t-shirt with a modern design.",
+    dressStyle:["Casual"]
   },
   {
     id: "10",
-    name: "Slim Fit Jeans",
+    name: "Zara T-shirt",
     price: 220,
     image: "/Images/10.png",
     category: "T-shirts",
     rating: 4.5,
     reviewCount: 45,
-    colors: ["Red", "Blue", "Green"],
+    colors: ["White", "Blue", ],
     sizes: ["S", "M", "L", "XL"],
     description: "Slim fit jeans with a comfortable stretch.",
+    dressStyle:["Casual"]
   },
   {
     id: "11",
-    name: "Denim Jacket",
+    name: "Polo T-shirt",
     price: 300,
     image: "/Images/11.png",
     category: "T-shirts",
     rating: 4.5,
     reviewCount: 45,
-    colors: ["Red", "Blue", "Green"],
+    colors: ["Red",],
     sizes: ["S", "M", "L", "XL"],
     description: "Classic denim jacket with a timeless design.",
+    dressStyle:["Casual", "Formal"]
   },
   {
     id: "12",
-    name: "Leather Jacket",
+    name: "Casual T-shirt",
     price: 450,
     image: "/Images/12.png",
     category: "T-shirts",
     rating: 4.5,
     reviewCount: 45,
-    colors: ["Red", "Blue", "Green"],
+    colors: ["White","Black"],
     sizes: ["S", "M", "L", "XL"],
     description: "Premium leather jacket for a rugged look.",
+    dressStyle:["Casual",]
   },
   {
     id: "13",
-    name: "Winter Coat",
+    name: "Polo T-shirt",
     price: 500,
     image: "/Images/13.png",
     category: "T-shirts",
     rating: 4.5,
     reviewCount: 45,
-    colors: ["Red", "Blue", "Green"],
+    colors: [ "Blue","White" ],
     sizes: ["S", "M", "L", "XL"],
     description: "Warm winter coat with a stylish design.",
+    dressStyle:["Casual", "Formal"]
   },
 ]
 
