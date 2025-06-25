@@ -25,17 +25,12 @@ const reviews = [
     text: "Every time I order from Shop.co, I know I’m getting high-quality fashion that fits beautifully. Highly recommended!",
   },
   {
-    name: "Monica D.",
-    text: "Every time I order from Shop.co, I know I’m getting high-quality fashion that fits beautifully. Highly recommended!",
-  }, {
-    name: "Monica D.",
-    text: "Every time I order from Shop.co, I know I’m getting high-quality fashion that fits beautifully. Highly recommended!",
-  }, {
-    name: "Monica D.",
-    text: "Every time I order from Shop.co, I know I’m getting high-quality fashion that fits beautifully. Highly recommended!",
-  }, {
-    name: "Monica D.",
-    text: "Every time I order from Shop.co, I know I’m getting high-quality fashion that fits beautifully. Highly recommended!",
+    name: "Emily R.",
+    text: "Shop.co has become my go-to for all things fashion. The quality is top-notch, and the styles are always fresh and exciting.",
+  },
+  {
+    name: "David S.",
+    text: "I love how Shop.co combines style with comfort. Their clothes are perfect for both everyday wear and special occasions.",
   },
 ]
 
