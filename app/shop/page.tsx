@@ -96,13 +96,6 @@ export default function ShopPage() {
 
         <div className="flex-1">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-            {/* <div>
-              <h1 className="text-xl md:text-2xl font-bold">{}</h1>
-              <p className="text-gray-600 text-sm md:text-base">
-                Showing 1-{filteredProducts.length} of {filteredProducts.length} Products
-              </p>
-            </div> */}
-
             <div>
               <h1 className="text-xl md:text-2xl font-bold">
                 {filters.searchQuery
@@ -117,7 +110,6 @@ export default function ShopPage() {
                 Showing 1-{filteredProducts.length} of {filteredProducts.length} Products
               </p>
             </div>
-
 
             <div className="flex items-center gap-2">
               <Button variant="outline" onClick={() => setShowMobileFilters(true)} className="lg:hidden">
@@ -155,6 +147,18 @@ export default function ShopPage() {
               <p className="text-gray-500">No products found matching your criteria.</p>
             </div>
           )}
+
+          <div className="mt-8 w-full flex justify-center items-center space-x-1 sm:space-x-2 overflow-hidden">
+            <button className="px-2 py-1 border rounded text-xs sm:text-sm">Prev</button>
+            <button className="px-2 py-1 border rounded text-xs sm:text-sm">1</button>
+            <button className="px-2 py-1 border rounded text-xs sm:text-sm">2</button>
+            <span className="px-2 py-1 text-xs sm:text-sm">...</span>
+            <button className="px-2 py-1 border rounded text-xs sm:text-sm">9</button>
+            <button className="px-2 py-1 border rounded text-xs sm:text-sm">10</button>
+            <button className="px-2 py-1 border rounded text-xs sm:text-sm">Next</button>
+          </div>
+
+
         </div>
       </div>
       <MobileFilters open={showMobileFilters} onClose={() => setShowMobileFilters(false)} />
