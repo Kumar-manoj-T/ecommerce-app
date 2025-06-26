@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { ProductCard } from "@/components/product-card"
 import { useAppSelector } from "@/lib/hooks"
 import CustomerReview from "@/components/customer-review"
-import '../styles/globals.css'
+
 
 export default function HomePage() {
   const { items: products } = useAppSelector((state) => state.products)
