@@ -11,6 +11,7 @@ import { ProductCard } from "@/components/product-card"
 import { useAppSelector, useAppDispatch } from "@/lib/hooks"
 import { addToCart } from "@/lib/slices/cartSlice"
 import { useParams } from "next/navigation"
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -503,13 +504,29 @@ export default function ProductDetailPage() {
 
         {/* Related Products */}
         <div className="mt-12 md:mt-16">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">YOU MIGHT ALSO LIKE</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+            YOU MIGHT ALSO LIKE
+          </h2>
+
+          {/* Scrollable container for mobile */}
+          <div className="md:hidden overflow-x-auto no-scrollbar">
+            <div className="flex gap-4">
+              {relatedProducts.map((product) => (
+                <div key={product.id} className="min-w-[160px]">
+                  <ProductCard product={product} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Grid for desktop */}
+          <div className="hidden md:grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             {relatedProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
         </div>
+
       </div>
     </div>
   )

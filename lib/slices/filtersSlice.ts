@@ -39,7 +39,6 @@ const filtersSlice = createSlice({
     },
     toggleDressStyle: (state, action: PayloadAction<string>) => {
       const style = action.payload
-      console.log("Toggling dress style:---->", style)
       if (state.dressStyle.includes(style)) {
         state.dressStyle = state.dressStyle.filter((s) => s !== style)
       } else {
